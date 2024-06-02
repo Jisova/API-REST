@@ -1,0 +1,28 @@
+<?php
+  namespace App\Models;
+
+ 
+
+  use CodeIgniter\Model;
+  
+class Home_model extends Model {
+  protected $db; 
+
+
+    public function __construct()
+    {
+       
+		$this->db = \Config\Database::connect();
+
+    }
+
+
+
+    public function test(){
+
+      $query=$this->db->query("select * from esq_datos_personales.personal p where p.cedula='1311099244'");
+      
+      return($query->getResult());
+
+    }
+    }
